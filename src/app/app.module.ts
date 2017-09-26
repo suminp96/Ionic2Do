@@ -7,6 +7,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { TaskListPage } from '../pages/tasklist/tasklist';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCA-2GzAJgE1DJHse9d_KHuThoL8JqtWVw",
+  authDomain: "ionic2do-2d5bb.firebaseapp.com",
+  databaseURL: "https://ionic2do-2d5bb.firebaseio.com",
+  projectId: "ionic2do-2d5bb",
+  storageBucket: "ionic2do-2d5bb.appspot.com",
+  messagingSenderId: "887601734221"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -14,7 +26,9 @@ import { TaskListPage } from '../pages/tasklist/tasklist';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
