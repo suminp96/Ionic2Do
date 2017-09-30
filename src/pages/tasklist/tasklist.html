@@ -13,7 +13,8 @@
 
 <ion-content padding>
   <ion-list>
-   <ion-item-sliding *ngFor = "let task of tasks" #slidingItem>
+   <ion-item-sliding *ngFor = "let task of tasks | async" 
+   #slidingItem (ionSwipe) = "removeTask(slidingItem, task)">
     <ion-item [ngClass] = "{taskDone: task.status == 'done'}">
       {{task.title}}
     </ion-item>
